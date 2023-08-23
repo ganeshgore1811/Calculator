@@ -31,7 +31,7 @@
           font-size: 40px;
           height: 50px;
           width: 50px;
-          border: radius 10px;
+          border-radius 10px;
           cursor: pointer;
           border: 1px solid black;
 
@@ -87,6 +87,18 @@
          
          
         }
+        .clr{
+          font-size: 25px;
+          height: 30px;
+          width: 100px;
+          border-radius 10px;
+          cursor: pointer;
+          border: 1px solid black;
+          margin-right: 65px;
+        }
+        .clr:hover{
+          background-color: red;
+        }
 
       
     </style>
@@ -96,40 +108,58 @@
       <p class="brand-name"> 
         RTC
       </p>
-      <input type="text" class="calculator-screen"/>
+      <input type="text" id="input" class="calculator-screen"/>
       <div class="small-screen-container">
+        <button class="clr" onclick="handlekeypress('clear')"> CLR</button>
         <div class="small-screen"></div>
         <div class="small-screen"></div>
         <div class="small-screen"></div>
 
       </div>
     <div class="button-row">
-      <button class="cal-button"> 1</button>
-      <button class="cal-button"> 2</button>
-      <button class="cal-button"> 3</button>
-      <button class="cal-button bg-tomato"> +</button>
+      <button class="cal-button" onclick="handlekeypress( '1')"> 1</button>
+      <button class="cal-button" onclick="handlekeypress( '2')"> 2</button>
+      <button class="cal-button" onclick="handlekeypress( '3')"> 3</button>
+      <button class="cal-button bg-tomato"onclick="handlekeypress( '+')"> +</button>
 
     </div>
     <div class="button-row">
-      <button class="cal-button"> 4</button>
-      <button class="cal-button"> 5</button>
-      <button class="cal-button"> 6</button>
-      <button class="cal-button bg-tomato"> -</button>
+      <button class="cal-button" onclick="handlekeypress( '4')"> 4</button>
+      <button class="cal-button" onclick="handlekeypress( '5')"> 5</button>
+      <button class="cal-button" onclick="handlekeypress( '6')"> 6</button>
+      <button class="cal-button bg-tomato" onclick="handlekeypress( '-')"> -</button>
 
     </div>
     <div class="button-row">
-      <button class="cal-button"> 7</button>
-      <button class="cal-button"> 8</button>
-      <button class="cal-button"> 9</button>
-      <button class="cal-button bg-tomato"> x</button>
+      <button class="cal-button" onclick="handlekeypress( '7')"> 7</button>
+      <button class="cal-button" onclick="handlekeypress( '8')"> 8</button>
+      <button class="cal-button" onclick="handlekeypress( '9')"> 9</button>
+      <button class="cal-button bg-tomato" onclick="handlekeypress( '*')"> x</button>
 
     </div>
     <div class="button-row">
-      <button class="cal-button "> 0</button>
-      <button class="cal-button bg-tomato"> /</button>
-      <button class="cal-button bg-tomato"> .</button>
-      <button class="cal-button bg-tomato"> =</button>
+      <button class="cal-button " onclick="handlekeypress( '0')"> 0</button>
+      <button class="cal-button bg-tomato" onclick="handlekeypress( '/')"> /</button>
+      <button class="cal-button bg-tomato" onclick="handlekeypress( '.')"> .</button>
+      <button class="cal-button bg-tomato" onclick="handlekeypress('=')"> =</button>
     </div>
-    
+    <script>
+      function handlekeypress( key)
+      {
+        const inputscreen = document.getElementById('input');
+        if( key=='=')
+        {
+          inputscreen.value = eval( inputscreen.value);
+        }
+        else if(key=='clear')
+        {
+         inputscreen.value = '';
+        }
+       else
+       {
+        inputscreen.value += key;
+       }
+      }
+    </script>
   </body>
 </html>
